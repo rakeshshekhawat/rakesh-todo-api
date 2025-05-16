@@ -18,6 +18,8 @@ import com.rakesh.common.ToDoNotFoundExecption;
 import com.rakesh.model.ToDo;
 import com.rakesh.service.ToDoService;
 
+import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping("/todos")
@@ -42,12 +44,12 @@ public class ToDoController {
 	}
 	
 	@PostMapping("/save")
-	public ResponseEntity<ToDo> saveTodo(@RequestBody ToDo todo) {
+	public ResponseEntity<ToDo> saveTodo(@Valid @RequestBody ToDo todo) {
 		//System.out.println(todo);
 		return new ResponseEntity<ToDo>( service.saveTodos(todo),HttpStatus.OK);
 	}
 	@PutMapping("/update")
-	public ResponseEntity<ToDo> updateTodo(@RequestBody ToDo todo) throws ToDoNotFoundExecption {
+	public ResponseEntity<ToDo> updateTodo(@Valid @RequestBody ToDo todo) throws ToDoNotFoundExecption {
 		return new ResponseEntity<ToDo>(service.updateTodo(todo),HttpStatus.OK);
 	}
 	
