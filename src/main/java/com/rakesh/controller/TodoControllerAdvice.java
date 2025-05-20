@@ -26,4 +26,11 @@ public class TodoControllerAdvice {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ed);
 	}
 	
+	/*
+	 * @ExceptionHandler(MethodArgumentNotValidException.class) public
+	 * ResponseEntity<ErrorDetails> handleInvalidTodo(NoSuchElementException e){
+	 * ErrorDetails ed=new
+	 * ErrorDetails("404","Empolyee-404 Not Found",LocalDateTime.now(),null); return
+	 * ResponseEntity.status(HttpStatus.NOT_FOUND).body(ed); }
+	 */
 }
